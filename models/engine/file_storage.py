@@ -50,3 +50,5 @@ class FileStorage:
                     new_object = json.load(myFile)
                 for key, value in new_object.items():
                     self.__objects[key] = eval(value['__class__'])(**value)
+            except:
+                pass
