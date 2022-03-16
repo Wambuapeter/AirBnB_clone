@@ -37,9 +37,9 @@ class HBNBCommand(cmd.Cmd):
         """execute nothing in case of empty line"""
         pass
 
-    def do_create(self, line):
+    def do_create(self, myArgs):
         """creates a new insatnce of the BaseModel"""
-        args = line.split()
+        args = myArgs.split()
 
         if len(args) == 0:
             print("** class name missing **")
@@ -52,9 +52,9 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
             print(new.id)
 
-    def do_show(self, line):
+    def do_show(self, myArgs):
         """Prints str rep of an instance based on the class name and id"""
-        args = line.split()
+        args = myArgs.split()
 
         if len(args) == 0:
             print("** class name missing **")
@@ -75,9 +75,9 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print(all_keys[key])
 
-    def do_destroy(self, line):
+    def do_destroy(self, myArgs):
         """Deletes an instance based on the class name and id"""
-        args = line.split()
+        args = myArgs.split()
 
         if len(args) == 0:
             print("** class name missing **")
@@ -99,10 +99,10 @@ class HBNBCommand(cmd.Cmd):
                 del all_keys[key]
                 storage.save()
 
-    def all(self, line):
+    def all(self, myArgs):
         """Prints all string representation of all
         instances based or not on the class name"""
-        args = line.split()
+        args = myArgs.split()
 
         if len(args) == 0:
             print([str(v) for v in storage.all().values()])
@@ -114,10 +114,10 @@ class HBNBCommand(cmd.Cmd):
             print([str(v) for v in storage.all().values()
                   if v.__class__.__name__ == args[0]])
 
-    def do_update(self, line):
+    def do_update(self, myArgs):
         """Updates an instance based on the
         class name and id by adding or updating attribute"""
-        args = line.split()
+        args = myArgs.split()
         int_attrs = ("number_rooms", "number_bathrooms",
                      "max_guest", "price_by_night")
         flt_attrs = ("latitude", "longitude")
