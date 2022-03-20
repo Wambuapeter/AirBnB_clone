@@ -1,0 +1,1 @@
+We will design a front-end of our AirBnB clone which will display the places and amenities available and their prices,pwners and reviews
